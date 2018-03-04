@@ -9,6 +9,22 @@ var pets_dmg = {
 
 var reducts = {
 	'gold' : 0.82,
+	'helmet' : {
+		'hero' : 1,
+		'tap' : 1,
+		'pet' : 1,
+		'sc' : .67,
+		'hs' : .67,
+		'cs' : 1
+	},
+	'sword' : {
+		'hero' : 1,
+		'tap' : 1,
+		'pet' : 1,
+		'sc' : 1,
+		'hs' : 1,
+		'cs' : 1
+	},
 	'tap' : {
 		'hero' : 0,
 		'tap' : 1,
@@ -561,7 +577,7 @@ var artifacts = {
 			'sort' : 23,
 			'name' : '风暴之心',
 			'nickname' : 'HoS',
-			'bonus' : ' 所有伤害型宠物效果',
+			'bonus' : ' 宠物伤害加成',
 			'ad' : .5,
 			'effect' : .005,
 			'max' : -1,
@@ -580,7 +596,7 @@ var artifacts = {
 			'sort' : 24,
 			'name' : '太阳神之石',
 			'nickname' : 'AO',
-			'bonus' : ' 黄金宠物效果加成',
+			'bonus' : ' 宠物黄金加成',
 			'ad' : .5,
 			'effect' : .02,
 			'max' : -1,
@@ -597,7 +613,7 @@ var artifacts = {
 		'af' : {
 			'active' : 1,
 			'sort' : 25,
-			'name' : '仙鸟羽毛',
+			'name' : '仙鸟之羽',
 			'nickname' : 'AF',
 			'bonus' : ' 离线伤害',
 			'ad' : .3,
@@ -616,7 +632,7 @@ var artifacts = {
 		'hos' : {
 			'active' : 1,
 			'sort' : 26,
-			'name' : '腐败的符文心',
+			'name' : '腐化符文之心',
 			'nickname' : 'CRH',
 			'bonus' : ' 溅射伤害',
 			'ad' : .3,
@@ -656,7 +672,7 @@ var artifacts = {
 			'sort' : 28,
 			'name' : '冥界头骨',
 			'nickname' : 'HSk',
-			'bonus' : ' Boss伤害',
+			'bonus' : ' 头目伤害',
 			'ad' : 1,
 			'effect' : .12,
 			'max' : -1,
@@ -705,7 +721,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'expo' : {
-				'flat' : 'dmg'
+				'reduct' : 'sword'
 			}
 		},
 		'hom' : {
@@ -724,7 +740,7 @@ var artifacts = {
 			'cexpo' : 2,
 			'type' : 'multiply',
 			'expo' : {
-				'flat' : 'dmg'
+				'reduct' : 'helmet'
 			}
 		},
 		'tp' : {
@@ -806,7 +822,7 @@ var artifacts = {
 		'rt' : {
 			'active' : 1,
 			'sort' : 36,
-			'name' : '皇室毒药',
+			'name' : '皇室毒物',
 			'nickname' : 'RT',
 			'bonus' : ' 致命打击效果',
 			'ad' : .2,
@@ -1034,7 +1050,7 @@ var artifacts = {
 		'ip' : {
 			'active' : 1,
 			'sort' : 48,
-			'name' : '无限钟摆',
+			'name' : '无限摆锤',
 			'nickname' : 'IP',
 			'bonus' : ' 天堂圣击法力消耗',
 			'ad' : .9,
@@ -1148,7 +1164,7 @@ var artifacts = {
 		'ae' : {
 			'active' : 1,
 			'sort' : 54,
-			'name' : '众神灵药',
+			'name' : '仙馔密酒',
 			'nickname' : 'AE',
 			'bonus' : ' 法力池上限',
 			'ad' : .8,
@@ -1167,7 +1183,7 @@ var artifacts = {
 		'ms' : {
 			'active' : 1,
 			'sort' : 55,
-			'name' : '神秘法杖',
+			'name' : '神秘权杖',
 			'nickname' : 'MS',
 			'bonus' : ' 法力回复',
 			'ad' : 2,
@@ -1210,7 +1226,7 @@ var artifacts = {
 			'sort' : 57,
 			'name' : '圣杯',
 			'nickname' : 'DC',
-			'bonus' : ' 10x 黄金几率',
+			'bonus' : ' 10倍黄金几率',
 			'ad' : 1,
 			'effect' : .01,
 			'max' : 50,
@@ -1267,7 +1283,7 @@ var artifacts = {
 		'eotk' : {
 			'active' : 1,
 			'sort' : 60,
-			'name' : '神狐精华',
+			'name' : '狐仙精华',
 			'nickname' : 'EotK',
 			'bonus' : ' 多重重生几率',
 			'ad' : 3,
@@ -1362,9 +1378,9 @@ var artifacts = {
 		'wod' : {
 			'active' : 1,
 			'sort' : 65,
-			'name' : '黑暗守卫',
+			'name' : '暗黑守卫',
 			'nickname' : 'WoD',
-			'bonus' : '秒 Boss 持续时间',
+			'bonus' : '秒 头目持续时间',
 			'ad' : 2,
 			'effect' : 1,
 			'max' : 60,

@@ -123,7 +123,8 @@ function adjustWeights() {
 					break;
 
 				case 'equip':
-					v.rating += 2;
+					v.rating += 1;
+					v.rating += reducts.hero[build];
 					v.rating += reducts.gold;
 					v.rating += reducts.companion[build];
 					v.color = 'info';
@@ -146,7 +147,7 @@ function adjustWeights() {
 						v.rating = 1;
 						v.color = 'info';
 					} else {
-						v.rating = 0;
+						v.rating = 0.5;
 						v.color = 'secondary';
 					}
 					break;
