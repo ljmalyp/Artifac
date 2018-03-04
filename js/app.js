@@ -355,7 +355,7 @@ function renderSuggestions() {
 		litmus = true;
 	});
 	if(false == litmus) {
-		$('#suggestions').empty().append('<p>你负担不起下一个最好的升级.如果你有更多的圣物或者尝试降低你的四舍五入来看结果,请再试一次.</p>');
+		$('#suggestions').empty().append('<p>你的圣物不能满足下一个最好的升级.如果你有更多的圣物或者尝试降低你的购买选项来看结果,请再试一次.</p>');
 		relics = 0;
 		return;
 	}
@@ -364,7 +364,7 @@ function renderSuggestions() {
 			suggestions += '<div class="card border border-secondary ' + ($('#wolf').prop('checked') == true ? 'bg-dark' : '') + '">';
 				suggestions += '<div class="card-header d-flex justify-content-between align-items-center" id="' + k + 'deetsh">';
 					suggestions += '<span>';
-						suggestions += '<span class="d-inline d-sm-none">' + v.nickname + '</span>';
+						suggestions += '<span class="d-inline d-sm-none">' + v.name + '[' + v.nickname + ']</span><br />';
 						suggestions += '<span class="d-none d-sm-inline">' + v.name + '</span>';
 						suggestions += ' <small>' + displayTruncated(v.level) + '&#x00A0;=>&#x00A0;' + displayTruncated(temp_artifacts.data[k].level) + '</small>';
 						suggestions += '<span class="badge badge-' + v.color + ' ml-3">+' + upgrades[k] + '</span>';
@@ -377,7 +377,7 @@ function renderSuggestions() {
 							suggestions += '<dt class="col-3 col-sm-6 text-right">效果</dt>';
 							suggestions += '<dd class="col-9 col-sm-6">' + displayEffect(artifacts.data[k].current_effect, artifacts.data[k].type) + ' => ' + displayEffect(temp_artifacts.data[k].current_effect, artifacts.data[k].type) + '</dd>';
 							suggestions += '<dt class="col-3 col-sm-6 text-right">';
-								suggestions += '<span class="d-block d-sm-none">AD</span>';
+								suggestions += '<span class="d-block d-sm-none">神器伤害</span>';
 								suggestions += '<span class="d-none d-sm-block">神器伤害</span>';
 							suggestions += '</dt>';
 							suggestions += '<dd class="col-9 col-sm-6">' + displayPct(artifacts.data[k].current_ad) + ' => ' + displayPct(temp_artifacts.data[k].current_ad) + '</dd>';
