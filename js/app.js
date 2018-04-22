@@ -141,7 +141,7 @@ function generateArtifacts() {
 		row += '</tr>';
 		$('#artifacts').append(row);
     var div = '<div class="col-3 col-sm-2 col-lg-1 border text-center">';
-    div += '<strong class="' + nmcol + '">' + v.name + '</strong><br><span id="' + k + 'dalt">Lv:' + displayTruncated(v.level) + '</span>';
+    div += '<strong class="' + nmcol + '">' + v.name + '</strong><br>Lv:<span id="' + k + 'dalt">' + displayTruncated(v.level) + '</span>';
     div += '</div>'
 		$('#daltifacts').append(div);
 	});
