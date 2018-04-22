@@ -87,8 +87,12 @@ function generateArtifacts() {
 	$('#artifacts').empty();
 	$('#daltifacts').empty();
 	$.each(artifacts.data, function(k,v) {
+		var nmcol='';
 		if(isNaN(v.level)) {
 			v.level = 0;
+		}
+		if (v.level==0) {
+			nmcol='text-danger ';
 		}
 		var row = '<tr class="' + (1 == v.active ? '' : 'text-dark bg-secondary') + '" id="'+ k + 'row">';
 			row += '<td>';
@@ -137,7 +141,7 @@ function generateArtifacts() {
 		row += '</tr>';
 		$('#artifacts').append(row);
     var div = '<div class="col-3 col-sm-2 col-lg-1 border text-center">';
-    div += '<strong>' + v.name + '</strong><br><span id="' + k + 'dalt">' + displayTruncated(v.level) + '</span>';
+    div += '<strong class="' + nmcol + '">' + v.name + '</strong><br><span id="' + k + 'dalt">Lv:' + displayTruncated(v.level) + '</span>';
     div += '</div>'
 		$('#daltifacts').append(div);
 	});
@@ -1249,43 +1253,20 @@ function displayPct(value) {
 }
 
 function displayTruncated(value) {
-	if(value > 999999999999999999999) {
-		value = (value / 1000000000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e21/ac';
-	} else if(value > 99999999999999999999) {
-		value = (value / 100000000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e20';
-	} else if(value > 9999999999999999999) {
-		value = (value / 10000000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e19';
-	} else if(value > 999999999999999999) {
-		value = (value / 1000000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e18/ab';
-	} else if(value > 99999999999999999) {
-		value = (value / 100000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e17';
-	} else if(value > 9999999999999999) {
-		value = (value / 10000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e16';
-	} else if(value > 999999999999999) {
-		value = (value / 1000000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e15/aa';
-	} else if(value > 99999999999999) {
-		value = (value / 100000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e14';
-	} else if(value > 9999999999999) {
-		value = (value / 10000000000000).toFixed(2).replace(/\.?0+$/, '');
-		value += 'e13';
-	} else if(value > 999999999999) {
+	var num=Math.floor(Math.log(value)/Math.log(10));
+	if(num > 12) {
+		value = value.toPrecision(3);
+		value = value.toString().replace("+", "");
+	} else if(num > 11) {
 		value = (value / 1000000000000).toFixed(2).replace(/\.?0+$/, '');
 		value += 'T';
-	} else if(value > 999999999) {
+	} else if(num > 8) {
 		value = (value / 1000000000).toFixed(2).replace(/\.?0+$/, '');
 		value += 'B';
-	} else if(value > 999999) {
+	} else if(num > 5) {
 		value = (value / 1000000).toFixed(2).replace(/\.?0+$/, '');
 		value += 'M';
-	} else if(value > 999) {
+	} else if(num > 2) {
 		value = (value / 1000).toFixed(2).replace(/\.?0+$/, '');
 		value += 'K';
 	} else {
